@@ -1,0 +1,86 @@
+import Foundation
+
+func areaDelCuadrado() {
+    print("Ingrese el lado del cuadrado:")
+    if let lado = Double(readLine() ?? "") {
+        let area = lado * lado
+        print("El área del cuadrado es: \(area)")
+    } else {
+        print("Entrada inválida. Por favor, ingrese un número válido.")
+    }
+}
+
+func areaDelRectangulo() {
+    print("Ingrese la base del rectángulo:")
+    if let base = Double(readLine() ?? "") {
+        print("Ingrese la altura del rectángulo:")
+        if let altura = Double(readLine() ?? "") {
+            let area = base * altura
+            print("El área del rectángulo es: \(area)")
+        } else {
+            print("Altura inválida. Por favor, ingrese un número válido.")
+        }
+    } else {
+        print("Base inválida. Por favor, ingrese un número válido.")
+    }
+}
+
+func areaDelTriangulo() {
+    print("Ingrese la base del triángulo:")
+    if let base = Double(readLine() ?? "") {
+        print("Ingrese la altura del triángulo:")
+        if let altura = Double(readLine() ?? "") {
+            let area = (base * altura) / 2
+            print("El área del triángulo es: \(area)")
+        } else {
+            print("Altura inválida. Por favor, ingrese un número válido.")
+        }
+    } else {
+        print("Base inválida. Por favor, ingrese un número válido.")
+    }
+}
+
+func areaDelCirculo() {
+    print("Ingrese el radio del círculo:")
+    if let radio = Double(readLine() ?? "") {
+        let area = Double.pi * pow(radio, 2)
+        print("El área del círculo es: \(area)")
+    } else {
+        print("Radio inválido. Por favor, ingrese un número válido.")
+    }
+}
+
+func mostrarMenu() {
+    print("=== Menú de Áreas ===")
+    print("1. Área del cuadrado")
+    print("2. Área del rectángulo")
+    print("3. Área del triángulo")
+    print("4. Área del círculo")
+    print("5. Salir")
+    print("Seleccione una opción:")
+}
+
+var opcion: Int = 0
+
+repeat {
+    mostrarMenu()
+    if let input = readLine(), let valor = Int(input) {
+        opcion = valor
+        switch opcion {
+        case 1:
+            areaDelCuadrado()
+        case 2:
+            areaDelRectangulo()
+        case 3:
+            areaDelTriangulo()
+        case 4:
+            areaDelCirculo()
+        case 5:
+            print("Saliendo del programa...")
+        default:
+            print("Opción no válida.")
+        }
+    } else {
+        print("Entrada inválida. Por favor, ingrese un número válido.")
+    }
+} while opcion != 5
